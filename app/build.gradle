@@ -8,6 +8,8 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
+
+//        TODO: Change packageId for your own
         applicationId "pl.mkonkel.wsb.firebasedb"
         minSdkVersion 26
         targetSdkVersion 29

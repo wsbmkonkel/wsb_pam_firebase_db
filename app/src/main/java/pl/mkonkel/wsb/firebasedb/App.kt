@@ -1,6 +1,7 @@
 package pl.mkonkel.wsb.firebasedb
 
 import android.app.Application
+import android.util.Log
 import timber.log.Timber
 
 class App : Application() {

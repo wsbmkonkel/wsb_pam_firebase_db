@@ -1,3 +1,9 @@
 package pl.mkonkel.wsb.firebasedb.model
 
-// TODO: Add Note model here
+import com.google.firebase.database.IgnoreExtraProperties
+
+@IgnoreExtraProperties
+data class Note(
+    val title: String? = "",
+    val message: String? = ""
+)

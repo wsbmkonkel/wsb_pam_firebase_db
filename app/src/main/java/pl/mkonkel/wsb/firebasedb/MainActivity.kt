@@ -2,9 +2,10 @@ package pl.mkonkel.wsb.firebasedb
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
-//    TODO: Add FirebaseDatabase Instance here
+    private val db = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

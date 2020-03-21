@@ -10,9 +10,9 @@
         android:id="@+id/note_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:hint="note title"
         android:minHeight="60dp"
-        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,13 +21,26 @@
         android:id="@+id/note_body"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:hint="note body"
         android:minHeight="120dp"
-        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/note_title" />
+
+
+    <TextView
+        android:id="@+id/notes_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_purple"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@id/button_add_note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/note_body" />
 
     <Button
         android:id="@+id/button_add_note"

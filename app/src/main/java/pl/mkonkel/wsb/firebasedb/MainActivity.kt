@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getSavedNotes()
         databaseListener()
 
         button_add_note.setOnClickListener {
@@ -55,13 +56,42 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    Timber.i("Something was Changed!")
-                }
+                    val notes = p0.children.mapNotNull {
+                        it.getValue(Note::class.java)
+                    }
 
+                    updateView(notes)
+                }
             }
             )
     }
 
+    private fun getSavedNotes() {
+        db.child(NOTE)
+            .limitToFirst(100)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    Timber.e("Request was Canceled!")
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    Timber.i("Something was Changed!")
+
+                    val notes = p0.children.mapNotNull {
+                        it.getValue(Note::class.java)
+                    }
+
+                    updateView(notes)
+                }
+            })
+    }
+
+    fun updateView(notes: List<Note>) {
+        val joinedNotes = notes.joinToString("\n\n")
+
+        notes_preview.text = ""
+        notes_preview.text = joinedNotes
+    }
 
     companion object {
         const val NOTE = "note"
